@@ -279,7 +279,7 @@ pub fn update_buffer(context: *mut d3d11::ID3D11DeviceContext, buffer: &Buffer,
     let dst_resource = (buffer.0).0 as *mut d3d11::ID3D11Resource;
 
     // DYNAMIC only
-    let map_type = d3d11::D3D11_MAP_WRITE_DISCARD;
+    let map_type = d3d11::D3D11_MAP_WRITE;
     let hr = unsafe {
         let mut sub = mem::zeroed();
         let hr = (*context).Map(dst_resource, 0, map_type, 0, &mut sub);
